@@ -1,4 +1,4 @@
-## Set up a clean enviroment for the workshop
+## Apply basic security to new Fedora based VM
 
 ### Prerequisites
 
