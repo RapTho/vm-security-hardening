@@ -1,0 +1,4 @@
+---
+# defaults file for secure-vm
+permitRootLogin: false
+ssh_port: 32122
