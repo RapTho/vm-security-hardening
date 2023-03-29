@@ -1,4 +1,4 @@
-## Apply basic security to new Fedora based VM
+## Apply basic security to new RHEL/CentOS VM
 
 ### Prerequisites
 
@@ -25,15 +25,16 @@ sudo echo "ansible ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ansible
 Create ssh keys and copy the public key to all remote hosts you wish to manage. Replace **MYHOST** with your remote host e.g. 192.168.1.2
 
 ```
+export MYHOST=192.168.1.2
 ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa_ansible
-ssh-copy-id -i ~/.ssh/id_rsa_ansible.pub ansible@MYHOST
+ssh-copy-id -i ~/.ssh/id_rsa_ansible.pub ansible@$MYHOST
 ```
 
 ### Clone the repository
 
 ```
-raphael@desktop:~$ git clone https://github.com/RapTho/vm-security-hardening.git
-raphael@desktop:~$ cd vm-security-hardening
+git clone https://github.com/RapTho/vm-security-hardening.git
+cd vm-security-hardening
 ```
 
 ### Add your ansible managed vm
@@ -44,7 +45,7 @@ Do **NOT remove** the ansible_port or ansible_ssh_private_key_file.
 
 ```
 [workstation]
-192.168.122.136 ansible_port="{{ ssh_port }}" ansible_ssh_private_key_file=~/.ssh/id_rsa_ansible
+192.168.1.2 ansible_port="{{ ssh_port }}" ansible_ssh_private_key_file=~/.ssh/id_rsa_ansible
 ```
 
 ### Set a password for the non-root users
@@ -68,7 +69,7 @@ password: myPassword
 The remote host will be **reset** to its previous state. All workshop users and their home directories will be deleted!
 
 ```
-raphael@desktop:~$ ansible-playbook playbook.yml --vault-id password.yml@prompt
+ansible-playbook playbook.yml --vault-id password.yml@prompt
 ```
 
 The VM is now ready.

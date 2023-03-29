@@ -1,0 +1,26 @@
+### REQUIRED
+namespace: raptho
+name: vm_hardening
+version: 1.0.0
+readme: README.md
+authors:
+- Raphael Tholl
+
+
+### OPTIONAL but strongly recommended
+description: Applying some basic security best practices to new RHEL/CentOS virtual machines
+license_file: './LICENSE'
+tags: ["security", "virtual_machine", "selinux", "custom_ssh_port", "firewall"]
+
+# Collections that this collection requires to be installed for it to be usable. The key of the dict is the
+# collection label 'namespace.name'. The value is a version range
+dependencies: 
+  ansible.posix: '>=1.0.0'
+
+# The URL of the originating SCM repository
+repository: https://github.com/RapTho/vm-security-hardening
+issues: https://github.com/RapTho/vm-security-hardening/issues
+
+# A list of file glob-like patterns used to filter any files or directories that should not be included in the build
+# artifact. 
+build_ignore: []
