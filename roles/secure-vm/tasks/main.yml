@@ -1,6 +1,0 @@
----
-- name: Detect the hosts ssh port
-  import_tasks: detect_ssh_port.yml
-
-- name: Security hardening of the host
-  import_tasks: security.yml

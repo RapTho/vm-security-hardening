@@ -1,1 +1,3 @@
 password.yml
+*id_rsa_ansible
+*.log

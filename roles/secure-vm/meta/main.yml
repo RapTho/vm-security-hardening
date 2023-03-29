@@ -1,9 +1,0 @@
-galaxy_info:
-  author: Raphael Tholl
-  description: This role secures a Fedora based VM
-  license: MIT
-
-  min_ansible_version: "2.9"
-
-  platforms:
-  - name: Fedora
